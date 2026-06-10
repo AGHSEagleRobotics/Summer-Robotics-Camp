@@ -14,8 +14,9 @@ import edu.wpi.first.wpilibj.DriverStation;
 public class LED_Level1 extends SubsystemBase {
 private final CANdle m_candle1;
 
-private static final int kSlotStart = 1;
-private static final int kSlotEnd = 2;
+// private static final int kSlotStart = 1;
+// private static final int kSlotEnd = 2;
+//These may only be needed for animations
 
 CANdleConfiguration configOn;
 CANdleConfiguration configOff;
@@ -42,5 +43,10 @@ public void Color(){
 public void turnOffColor(){
     m_candle1.getConfigurator().apply(configOff);
 }
+
+@Override
+  public void periodic() {
+    // This method will be called once per scheduler run
+  }
 
 }
