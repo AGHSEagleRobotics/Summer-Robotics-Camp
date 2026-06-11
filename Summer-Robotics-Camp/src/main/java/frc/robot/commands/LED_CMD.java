@@ -5,23 +5,23 @@
 package frc.robot.commands;
 
 import frc.robot.subsystems.ExampleSubsystem;
-import frc.robot.subsystems.LED_Level1;
+import frc.robot.subsystems.Subsystem_LED;
 import edu.wpi.first.wpilibj2.command.Command;
 
 /** An example command that uses an example subsystem. */
-public class CMDLEDL1 extends Command {
+public class LED_CMD extends Command {
   @SuppressWarnings("PMD.UnusedPrivateField")
-  private final LED_Level1 m_Led_Level1;
+  private final Subsystem_LED m_LED_Level1;
 
   /**
    * Creates a new ExampleCommand.
    *
    * @param subsystem The subsystem used by this command.
    */
-  public CMDLEDL1(LED_Level1 m_LED_Level1) {
-    m_LED_Level1 = LED_Level1;
+  public LED_CMD(Subsystem_LED LED1) {
+    m_LED_Level1 = LED1;
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(LED_Level1);
+    addRequirements(LED1);
   }
 
   // Called when the command is initially scheduled.
