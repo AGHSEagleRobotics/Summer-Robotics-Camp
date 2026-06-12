@@ -14,39 +14,45 @@ import com.ctre.phoenix6.signals.StripTypeValue;
 import edu.wpi.first.wpilibj.DriverStation;
 
 public class Subsystem_LED extends SubsystemBase {
-private final CANdle m_candle;
+  private final CANdle m_candle;
 
-private static final int kSlotStart = 1;
-private static final int kSlotEnd = 2;
-//These may only be needed for animations
+  private static final int kSlotStart = 1;
+  private static final int kSlotEnd = 2;
+  // These may only be needed for animations
 
-CANdleConfiguration configOn;
-CANdleConfiguration configOff;
+  CANdleConfiguration configOn;
+  CANdleConfiguration configOff;
 
-public Subsystem_LED(CANdle candle) {
-m_candle = candle;
+  public Subsystem_LED(CANdle candle) {
+    m_candle = candle;
 
-configOn = new CANdleConfiguration();
-configOn.withLED(new LEDConfigs().withStripType(StripTypeValue.GRB).withBrightnessScalar(1));
+    configOn = new CANdleConfiguration();
+    configOn.withLED(new LEDConfigs().withStripType(StripTypeValue.GRB).withBrightnessScalar(1));
 
-configOff = new CANdleConfiguration();
-configOff.withLED(new LEDConfigs().withStripType(StripTypeValue.GRB).withBrightnessScalar(0));
+    configOff = new CANdleConfiguration();
+    configOff.withLED(new LEDConfigs().withStripType(StripTypeValue.GRB).withBrightnessScalar(0));
 
-}
+  }
 
-public void Color(){
+  public void color1() {
     m_candle.getConfigurator().apply(configOn);
     m_candle.setControl(
-        new SolidColor(1,2)
-            .withColor(new RGBWColor(Color.kBisque).scaleBrightness(1))
-    );
-}
+        new SolidColor(1, 2)
+            .withColor(new RGBWColor(Color.kBisque).scaleBrightness(1)));
+  }
 
-public void turnOffColor(){
+  public void color2() {
+    m_candle.getConfigurator().apply(configOn);
+    m_candle.setControl(
+        new SolidColor(1, 2)
+            .withColor(new RGBWColor(Color.kAntiqueWhite).scaleBrightness(1)));
+  }
+
+  public void turnOffLED() {
     m_candle.getConfigurator().apply(configOff);
-}
+  }
 
-public void setFireAnimation(){
+  public void setFireAnimation() {
     // Fire animation
     m_candle.setControl(
         new FireAnimation(kSlotStart, kSlotEnd).withSlot(1)
@@ -55,7 +61,7 @@ public void setFireAnimation(){
             .withSparking(0.6));
   }
 
-@Override
+  @Override
   public void periodic() {
     // This method will be called once per scheduler run
   }
