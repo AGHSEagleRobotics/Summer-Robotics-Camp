@@ -37,6 +37,7 @@ public class Subsystem_LED extends SubsystemBase {
     m_candle.setControl(
         new SolidColor(1, 2)
             .withColor(new RGBWColor(Color.kBisque).scaleBrightness(1)));
+            System.out.println("IN COLOR ONE");
   }
 
   public void color2() {
@@ -44,10 +45,12 @@ public class Subsystem_LED extends SubsystemBase {
     m_candle.setControl(
         new SolidColor(1, 2)
             .withColor(new RGBWColor(Color.kAntiqueWhite).scaleBrightness(1)));
+            System.out.println("IN COLOR TWO");
   }
 
   public void turnOffLED() {
     m_candle.getConfigurator().apply(configOff);
+    System.out.println("IN TURN OFF");
   }
 
   public void setFireAnimation() {
@@ -57,6 +60,7 @@ public class Subsystem_LED extends SubsystemBase {
             .withDirection(AnimationDirectionValue.Backward)
             .withCooling(0.2)
             .withSparking(0.6));
+    System.out.println("IN FIRE ANIMATION");
   }
 
   @Override

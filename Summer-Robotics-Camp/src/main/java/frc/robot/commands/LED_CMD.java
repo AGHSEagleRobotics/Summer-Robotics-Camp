@@ -6,6 +6,8 @@ package frc.robot.commands;
 
 import frc.robot.subsystems.Subsystem_LED;
 
+import java.util.function.Supplier;
+
 import edu.wpi.first.wpilibj2.command.Command;
 
 /** An example command that uses an example subsystem. */
@@ -17,18 +19,17 @@ public class LED_CMD extends Command {
   private boolean m_color1;
   private boolean m_color2;
   private boolean m_setFireAnimation;
+  private Supplier<Integer> m_ledMode;
 
   /**
    * Creates a new ExampleCommand.
    *
    * @param subsystem The subsystem used by this command.
    */
-  public LED_CMD(Subsystem_LED LED, boolean configOff, boolean color1, boolean color2, boolean setFireAnimation) {
+  public LED_CMD(Subsystem_LED LED, Supplier<Integer> ledMode) {
     m_LED = LED;
-    m_configOff = configOff;
-    m_color1 = color1;
-    m_color2 = color2;
-    m_setFireAnimation = setFireAnimation;
+    m_ledMode = ledMode;
+
 
 
     // Use addRequirements() here to declare subsystem dependencies.
@@ -38,27 +39,28 @@ public class LED_CMD extends Command {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
+    System.out.println("INSIDE LED COMMAND");
     startLEDToggle();
   }
 
   private void startLEDToggle(){
 
-    if(m_configOff) {
+    if(m_ledMode.get().equals(0)) {
         m_LED.turnOffLED();
         return;
     }
 
-    if (m_color1) {
+    if (m_ledMode.get().equals(1)) {
+        m_LED.color1();
+        return;
+    }
+
+    if (m_ledMode.get().equals(2)) {
         m_LED.color2();
         return;
     }
 
-    if (m_color2) {
-        m_LED.color2();
-        return;
-    }
-
-    if (m_setFireAnimation) {
+    if (m_ledMode.get().equals(3)) {
         m_LED.setFireAnimation();
         return;
     }
