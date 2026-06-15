@@ -11,6 +11,8 @@ import com.ctre.phoenix6.signals.AnimationDirectionValue;
 import com.ctre.phoenix6.signals.RGBWColor;
 import com.ctre.phoenix6.signals.StripTypeValue;
 
+// Imports bring in essential information, such as APIs for objects in our code
+
 public class Subsystem_LED extends SubsystemBase {
   private final CANdle m_candle;
 
@@ -29,6 +31,8 @@ public class Subsystem_LED extends SubsystemBase {
 
     configOff = new CANdleConfiguration();
     configOff.withLED(new LEDConfigs().withStripType(StripTypeValue.GRB).withBrightnessScalar(0));
+
+    //Set up configs, on and off
 
   }
 

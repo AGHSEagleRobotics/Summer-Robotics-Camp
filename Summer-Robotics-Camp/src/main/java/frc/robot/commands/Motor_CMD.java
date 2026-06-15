@@ -8,13 +8,13 @@ import java.util.function.Supplier;
 import frc.robot.subsystems.Motors;
 import edu.wpi.first.wpilibj2.command.Command;
 
-/** An example command that uses an example subsystem. */
 public class Motor_CMD extends Command {
 
   private Motors m_motors;
 
   private Supplier<Double> m_leftY;
   private Supplier<Double> m_rightY;
+  // Supplier refers to controlling using values from joysticks in this case
 
   public Motor_CMD(
       Motors motors,

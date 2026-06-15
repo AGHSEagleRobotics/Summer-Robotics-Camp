@@ -71,6 +71,7 @@ public class RobotContainer {
 
   public void setLEDMode(int val) {
     this.ledMode = val;
+    // Getting the LED mode value, or "val"
   }
 
   public int getLEDMode() {

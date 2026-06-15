@@ -13,6 +13,7 @@ public class Toggle_CMD extends Command {
 
     public Toggle_CMD(RobotContainer robotContainer) {
         m_robotContainer = robotContainer;
+        // Pass in and instantiate robot container
     }
 
     @Override
@@ -22,7 +23,7 @@ public class Toggle_CMD extends Command {
         if (m_robotContainer.ledMode > 3) {
             m_robotContainer.ledMode = 0;
         }
-        System.out.println("I AM HERE HI HI HI" + m_robotContainer.ledMode);
+        System.out.println("[Insert your message here]" + m_robotContainer.ledMode);
     }
 
     @Override
