@@ -6,7 +6,6 @@ package frc.robot.commands;
 
 import java.util.function.Supplier;
 import frc.robot.subsystems.Motors;
-import edu.wpi.first.units.measure.Power;
 import edu.wpi.first.wpilibj2.command.Command;
 
 /** An example command that uses an example subsystem. */
@@ -43,7 +42,7 @@ public class Motor_CMD extends Command {
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    m_motors.tankDrive(1, 1);
+    m_motors.tankDrive(0, 0);
   }
 
   // Returns true when the command should end.

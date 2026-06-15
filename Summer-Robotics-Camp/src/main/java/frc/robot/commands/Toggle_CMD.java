@@ -17,12 +17,12 @@ public class Toggle_CMD extends Command {
 
     @Override
     public void initialize() {
-       
+
         m_robotContainer.ledMode++;
         if (m_robotContainer.ledMode > 3) {
             m_robotContainer.ledMode = 0;
         }
-         System.out.println("I AM HERE HI HI HI" + m_robotContainer.ledMode);
+        System.out.println("I AM HERE HI HI HI" + m_robotContainer.ledMode);
     }
 
     @Override

@@ -32,12 +32,16 @@ public class Subsystem_LED extends SubsystemBase {
 
   }
 
+  public void clearAnimation() {
+    m_candle.setControl(new SolidColor(0, 0));
+  }
+
   public void color1() {
     m_candle.getConfigurator().apply(configOn);
     m_candle.setControl(
         new SolidColor(1, 2)
             .withColor(new RGBWColor(Color.kBisque).scaleBrightness(1)));
-            System.out.println("IN COLOR ONE");
+    System.out.println("IN COLOR ONE");
   }
 
   public void color2() {
@@ -45,7 +49,7 @@ public class Subsystem_LED extends SubsystemBase {
     m_candle.setControl(
         new SolidColor(1, 2)
             .withColor(new RGBWColor(Color.kAntiqueWhite).scaleBrightness(1)));
-            System.out.println("IN COLOR TWO");
+    System.out.println("IN COLOR TWO");
   }
 
   public void turnOffLED() {
@@ -67,5 +71,4 @@ public class Subsystem_LED extends SubsystemBase {
   public void periodic() {
     // This method will be called once per scheduler run
   }
-
 }
