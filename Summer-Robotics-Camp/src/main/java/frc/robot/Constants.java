@@ -15,8 +15,9 @@ public final class Constants {
   }
 
   public static class DriveTrainConstants {
-    public static final int kVictorID = 4; // Victor SPX
-    public static final int kTalonID = 9; // "intake arm motor" (CTRE)
+    public static final int kVictor = 4; // Victor SPX
+    public static final int kTalon = 9; // "intake arm motor" (CTRE) aka Talon
   }
-  //This is where we store unchanging data that gets called from multiple classes. They are usaully CAN IDs.
+  // This is where we store unchanging data that gets called from multiple
+  // classes. They are usaully CAN IDs.
 }

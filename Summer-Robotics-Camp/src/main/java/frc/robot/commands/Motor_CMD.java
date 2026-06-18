@@ -12,37 +12,28 @@ public class Motor_CMD extends Command {
 
   private Motors m_motors;
 
-  private Supplier<Double> m_leftY;
-  private Supplier<Double> m_rightY;
+  private Supplier<Double> m_speed;
   // Supplier refers to controlling using values from joysticks in this case
 
-  public Motor_CMD(
-      Motors motors,
-      Supplier<Double> leftY,
-      Supplier<Double> rightY) {
+  public Motor_CMD(Motors motors, Supplier<Double> speed) {
     m_motors = motors;
 
-    m_leftY = leftY;
-    m_rightY = rightY;
+    m_speed = speed;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(m_motors);
-  }
-
-  // Called when the command is initially scheduled.
-  @Override
-  public void initialize() {
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    m_motors.tankDrive(m_leftY.get(), m_rightY.get());
+    double volts = m_speed.get() * 12.0; // full range: -12 to +12
+    m_motors.setVoltage(volts);
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    m_motors.tankDrive(0, 0);
+    m_motors.setVoltage(0);
   }
 
   // Returns true when the command should end.
